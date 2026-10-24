@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Web Highlights for Zotero",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "웹페이지에서 드래그한 문장과 메모를 그 페이지의 Zotero 아이템에 노트로 모아 저장합니다.",
   "permissions": ["storage"],
   "host_permissions": ["https://api.zotero.org/*"],

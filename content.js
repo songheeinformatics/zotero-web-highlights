@@ -103,10 +103,11 @@
     return { text, rect };
   }
 
-  function showFab(rect) {
+  // 버튼은 마우스를 뗀 지점의 오른쪽에 표시 (선택 영역이 아니라 커서 기준)
+  function showFab(pt) {
     ensureUI();
-    const x = Math.min(window.innerWidth - 40, Math.max(8, rect.right + 6));
-    const y = Math.min(window.innerHeight - 40, Math.max(8, rect.top - 36));
+    const x = Math.min(window.innerWidth - 40, Math.max(8, pt.x + 14));
+    const y = Math.min(window.innerHeight - 40, Math.max(8, pt.y - 16));
     fab.style.left = `${x}px`;
     fab.style.top = `${y}px`;
     fab.style.display = 'block';
@@ -278,6 +279,7 @@
 
   document.addEventListener('mouseup', (e) => {
     if (host && e.composedPath().includes(host)) return;
+    const pt = { x: e.clientX, y: e.clientY };
     setTimeout(() => {
       const s = captureSelection();
       if (s) {
@@ -285,7 +287,7 @@
         if (panelOpen) {
           panel.querySelector('.quote').textContent = s.text; // 패널이 열린 채로 새 문장을 긁으면 인용만 교체
         } else {
-          showFab(s.rect);
+          showFab(pt);
         }
       } else if (!panelOpen) {
         hideFab();
