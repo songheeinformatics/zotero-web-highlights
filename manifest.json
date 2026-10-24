@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Web Highlights for Zotero",
+  "version": "0.1.0",
+  "description": "웹페이지에서 드래그한 문장과 메모를 그 페이지의 Zotero 아이템에 노트로 모아 저장합니다.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.zotero.org/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Web Highlights for Zotero 설정",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "commands": {
+    "save-highlight": {
+      "suggested_key": { "default": "Alt+Z" },
+      "description": "선택한 텍스트를 Zotero 노트로 저장"
+    }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}

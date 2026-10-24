@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Web Highlights for Zotero · 설정</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; max-width: 620px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.5; }
+  h1 { font-size: 20px; color: #cc2936; margin-bottom: 4px; }
+  .sub { color: #666; margin-top: 0; }
+  section { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; padding: 18px 20px; margin: 18px 0; }
+  h2 { font-size: 15px; margin: 0 0 10px; }
+  label { display: block; font-size: 13px; color: #444; margin: 10px 0 4px; }
+  input[type=text], input[type=password], select { width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+  .row { display: flex; gap: 8px; align-items: center; }
+  .row input { flex: 1; }
+  button { border: none; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 13px; background: #eee; }
+  button.primary { background: #cc2936; color: #fff; }
+  button:disabled { opacity: .5; cursor: default; }
+  .status { font-size: 13px; margin-top: 8px; min-height: 18px; }
+  .ok { color: #1a7f37; } .err { color: #b3261e; } .warn { color: #9a6700; }
+  ol { padding-left: 20px; font-size: 13px; color: #444; }
+  code { background: #eee; padding: 1px 5px; border-radius: 4px; }
+  .foot { font-size: 12px; color: #777; }
+</style>
+</head>
+<body>
+  <h1>Web Highlights for Zotero</h1>
+  <p class="sub">드래그한 문장 + 메모 → 그 페이지의 Zotero 아이템에 노트 하나로 모아 저장</p>
+
+  <section>
+    <h2>1. Zotero API 키</h2>
+    <ol>
+      <li><a href="https://www.zotero.org/settings/keys/new" target="_blank" rel="noopener">zotero.org/settings/keys/new</a>에서 새 키 만들기</li>
+      <li><strong>Allow library access</strong>, <strong>Allow notes access</strong>, <strong>Allow write access</strong> 모두 체크 (그룹에 저장하려면 그룹 쓰기 권한도)</li>
+      <li>발급된 키를 아래에 붙여넣고 <em>연결 확인</em></li>
+    </ol>
+    <label for="apiKey">API 키</label>
+    <div class="row">
+      <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="예: AbCdEf0123456789...">
+      <button id="toggleKey" type="button" title="표시/숨김">👁</button>
+      <button id="verify" type="button" class="primary">연결 확인</button>
+    </div>
+    <div id="keyStatus" class="status"></div>
+  </section>
+
+  <section>
+    <h2>2. 저장 위치</h2>
+    <label for="library">라이브러리</label>
+    <select id="library" disabled><option value="">먼저 키를 확인하세요</option></select>
+    <label for="collection">컬렉션 (새 아이템을 넣을 곳, 선택)</label>
+    <select id="collection" disabled><option value="">(컬렉션 없음 — 라이브러리 루트)</option></select>
+    <div id="libStatus" class="status"></div>
+  </section>
+
+  <div class="row">
+    <button id="save" type="button" class="primary" disabled>저장</button>
+    <span id="saveStatus" class="status"></span>
+  </div>
+
+  <section>
+    <h2>사용법</h2>
+    <ol>
+      <li>웹페이지에서 문장을 드래그하면 빨간 <code>Z</code> 버튼이 뜹니다. 누르거나 <code>Alt+Z</code>.</li>
+      <li>메모를 쓰고 <em>저장</em> (<code>Ctrl+Enter</code>).</li>
+      <li>같은 페이지에서 다시 긁으면 같은 노트 아래에 계속 이어붙습니다.</li>
+      <li>페이지에 해당하는 아이템이 라이브러리에 없으면 서지(웹페이지 또는 DOI가 있으면 학술논문)를 새로 만듭니다. 이미 Zotero Connector로 저장한 아이템이 있으면 URL/DOI로 찾아 그 아래에 붙입니다.</li>
+    </ol>
+  </section>
+
+  <p class="foot">API 키는 이 브라우저의 로컬 저장소에만 보관되며, 요청은 <code>api.zotero.org</code>로만 전송됩니다. 개발자나 제3자 서버로는 아무것도 전송되지 않습니다.</p>
+
+  <script src="options.js"></script>
+</body>
+</html>

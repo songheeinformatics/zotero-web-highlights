@@ -1,0 +1,4 @@
+*.zip
+store/*.html
+Thumbs.db
+.DS_Store
