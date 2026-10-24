@@ -46,7 +46,7 @@
 1. [Chrome Web Store 개발자 대시보드](https://chrome.google.com/webstore/devconsole) 등록 (1회 5달러)
 2. 이 폴더를 zip으로 압축 (폴더 자체가 아니라 안의 파일들이 zip 루트에 오도록)
 3. 스토어 등록 정보: 설명, 스크린샷 1280×800 최소 1장, 128×128 아이콘(포함됨), 카테고리 "생산성"
-4. **개인정보 보호** 탭: `PRIVACY.md` 내용을 공개 URL(GitHub Pages 등)에 올리고 링크. 권한 사용 이유 작성:
+4. **개인정보 보호** 탭: 처리방침 URL `https://songheeinformatics.github.io/zotero-web-highlights/PRIVACY` 입력. 권한 사용 이유 작성:
    - `storage`: API 키·설정 저장
    - `https://api.zotero.org/*`: 사용자의 Zotero 라이브러리에 저장
    - 콘텐츠 스크립트(모든 사이트): 사용자가 드래그한 텍스트 감지
