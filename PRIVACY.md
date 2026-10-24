@@ -17,4 +17,4 @@ _Last updated: 2026-10-24_
 
 **Deleting your data.** Remove the API key in the extension settings or uninstall the extension; all locally stored data is deleted with it. Notes saved in Zotero remain in your Zotero library under your control.
 
-**Contact.** _[your contact email or GitHub issues URL]_
+**Contact.** https://github.com/songheeinformatics/zotero-web-highlights/issues
